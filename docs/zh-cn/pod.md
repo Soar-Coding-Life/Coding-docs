@@ -1,7 +1,7 @@
 # pod相关知识点 
 
 ## 1.安装和卸载`cocoapods`
-##### 安装
+###  安装
 ```ruby
 sudo gem install cocoapods
 #建立本地索引 
@@ -9,7 +9,7 @@ pod setup
 # 1.8.0以后支持CDN 大可不必如此 只需在Podfile文件头部加上一句 source 'https://cdn.cocoapods.org'
 source 'https://cdn.cocoapods.org'
 ```
-##### 卸载
+### 卸载
 ```ruby
 sudo gem list --local | grep cocoapods
 sudo gem uninstall cocoapods
@@ -24,7 +24,7 @@ sudo gem uninstall cocoapods-deintegrate
 ```
 
 ## 2.常规问题解决思路
-##### 50%报错问题可以通过 `pod install`或者`pod update`解决
+###  50%报错问题可以通过 `pod install`或者`pod update`解决
 ```ruby
 pod install #有时可能需要删除pods或者Podfile.lock 协作开发的时候最好是使用统一版本配置 避免删除Podfile.lock来解决问题
 或者
@@ -34,7 +34,7 @@ pod repo update
 或者
 pod install --repo-update
 ``` 
-##### 指定`swift`编译版本
+###  指定`swift`编译版本
 ```ruby
 post_install do |installer|
     installer.pods_project.targets.each do |target|
@@ -46,12 +46,12 @@ post_install do |installer|
     end
 end
 ```
-##### 由于墙的原因，可能会`install`失败,`Gem`换淘宝的源
+###  由于墙的原因，可能会`install`失败,`Gem`换淘宝的源
 ```ruby
 gem sources -a https://ruby.taobao.org/ #替换源
 gem sources -l #查看源
 ```
-##### `BitCode`一般来说是选择关闭的,如果有类似报错,pod也可以加上这一设置,排查问题
+###  `BitCode`一般来说是选择关闭的,如果有类似报错,pod也可以加上这一设置,排查问题
 ```ruby
 post_install do |installer| 
   installer.pods_project.targets.each do |target| 
@@ -84,11 +84,11 @@ end
 ```
 
 ## 4.创建自己组件
-1. 克隆远程库
+### 1. 克隆远程库
 ```shell
 git clone git@gitblit.local.com:XXX/iOSLibs.git
 ```
-2. 创建组件
+### 2. 创建组件
 
 ```ruby 
 pod lib create HelloWorldLib
@@ -106,7 +106,7 @@ pod lib create HelloWorldLib
 6.What is your class prefix?
 设置类前缀 
 ```
-查看目录结构 需安装`brew install tree`插件
+### 3. 查看目录结构 需安装`brew install tree`插件
 ```ruby
 tree -L 2 #查看2级目录结构
 
@@ -128,7 +128,7 @@ tree -L 2 #查看2级目录结构
 以上 HelloWorldLib 目录下的 Classes 里替换你的库文件, Assets 放资源文件  
 ```
 
-编辑 `HelloWorldLib.podspec`文件
+### 4.编辑 `HelloWorldLib.podspec`文件
 ```ruby
 Pod::Spec.new do |s|
 s.name             = 'HelloWorldLib'
@@ -161,13 +161,13 @@ s.source_files = 'HelloWorldLib/Classes/**/*'
 # s.dependency 'AFNetworking', '~> 2.3' #依赖库
 end
 ```
-3. 使用本地库调试
+### 5. 使用本地库调试
 **使用本地库调试，直接编辑Podfile，pod本地库的相对路径访问即可**
 ```ruby
  pod 'HelloWorldLib', :path => '../' # 使用`pod lib create HelloWorldLib`生成的工程自带本地库调试  其他工程取决于本地库相对于工程根目录所在的相对路径
  #这个 :path => '../' 路径只是访问HelloWorldLib.podspec文件的所在,如果路径正确,使用 `pod install` 即可安装正确
 ```
-4. 发布远程库 
+### 6. 发布远程库 
 若是尚未关联远程库，则需加一下关联操作
 ```ruby
 #若是没有关联远程库 可以执行以下操作
@@ -182,7 +182,7 @@ git tag  1.0.0 #版本号映射
 git push origin master --tags
 pod repo push git@gitblit.local.com:XXX/iOSLibSpecs.git HelloWorldLib.podspec # 需要自己创建一个索引库iOSLibSpecs存储 .podspec
 ```
-5. 发布远程公有库
+### 7. 发布远程公有库
 在`HelloWorldLib.podspec`所在目录下
 ```shell
 git add .

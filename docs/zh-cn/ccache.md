@@ -1,6 +1,4 @@
-# 优化编译速度实践记录 {docsify-ignore-all}
-
-## 1. 使用`CCache`编译缓存工具
+# 优化编译速度实践记录
 
 - 安装`ccache`
  ```shell
