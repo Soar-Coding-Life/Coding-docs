@@ -1,31 +1,47 @@
 # iOS的一些主流第三方库
-* [1.swift神经网络之计算机视觉库Forge.](https://github.com/hollance/Forge)
-* [2.斜向渐变背景动画库Pastel](https://github.com/cruisediary/Pastel)
-* [3.滑动卡片视图Koloda](https://github.com/Yalantis/Koloda)
-* [4.Rxswift](https://github.com/ReactiveX/RxSwift)
-* [5.SpreadsheetView ios表格组件](https://github.com/kishikawakatsumi/SpreadsheetView)
-* [6.照片视频选择组件 TZImagePickerController](https://github.com/banchichen/TZImagePickerController)
-* [7.YYKit组件](https://github.com/ibireme/YYKit)
-* [8.lottie逆天动画组件](https://github.com/airbnb/lottie-ios)
-* [9.Hero转场动画英雄](https://github.com/HeroTransitions/Hero)
-* [10.NotificationBanner通知横幅组件](https://github.com/Daltron/NotificationBanner)
-* [11.SwiftKotlin ios转安卓](https://github.com/angelolloqui/SwiftKotlin)
-* [12.Chameleon ios变色龙](https://github.com/ViccAlexander/Chameleon)
-* [13.DeckTransition 磁性卡片转场](https://github.com/HarshilShah/DeckTransition)
-* [14.Perfect Swift服务端框架](https://github.com/PerfectlySoft/Perfect)
-* [15.WKZombie webkit僵尸教主](https://github.com/mkoehnke/WKZombie)
-* [16.FSCalendar强大的日历控件](https://github.com/WenchaoD/FSCalendar)
-* [17.Kingfisher轻量级网络图片缓存](https://github.com/onevcat/Kingfisher)
-
-
-
-
-
-
-
-
-
-
+* [AFNetworking网络框架](https://github.com/AFNetworking/AFNetworking)
+* [SDWebImage图片加载框架](https://github.com/SDWebImage/SDWebImage)
+* [Masonry自动布局框架](https://github.com/SnapKit/Masonry)
+* [MJRefresh上下拉刷新框架](https://github.com/CoderMJLee/MJRefresh)
+* [ReactiveObjC FRP编程范式/响应式编程框架](https://github.com/ReactiveCocoa/ReactiveObjC)
+* [YYKit组件](https://github.com/ibireme/YYKit)
+* [YYText富文本库](https://github.com/ibireme/YYText)
+* [YYModel字典模型互转高效框架](https://github.com/ibireme/YYModel)
+* [IQKeyboardManager键盘自动管理](https://github.com/hackiftekhar/IQKeyboardManager)
+* [JXCategoryView分栏切换菜单](https://github.com/pujiaxin33/JXCategoryView)
+* [JXPagingView 个人中心视图](https://github.com/pujiaxin33/JXPagingView)
+* [SDCycleScrollView 轮播banner框架](https://github.com/gsdios/SDCycleScrollView)
+* [ZFPlayer 播放器封装库](https://github.com/renzifeng/ZFPlayer)
+* [FDFullscreenPopGesture右滑返回丝般顺滑](https://github.com/forkingdog/FDFullscreenPopGesture)
+* [UITableView+FDTemplateLayoutCell 高度缓存](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)
+* [WebViewJavascriptBridge JS交互](https://github.com/marcuswestin/WebViewJavascriptBridge)
+* [FLAnimatedImage GIF加载框架](https://github.com/Flipboard/FLAnimatedImage)
+* [MBProgressHUD HUD提示框](https://github.com/jdg/MBProgressHUD)
+* [SVProgressHUD HUD提示框](https://github.com/SVProgressHUD/SVProgressHUD)
+* [FSCalendar 日历控件](https://github.com/WenchaoD/FSCalendar)
+* [TZImagePickerController 照片视频选择组件](https://github.com/banchichen/TZImagePickerController)
+* [ZLPhotoBrowser 图片选择框架](https://github.com/longitachi/ZLPhotoBrowser)
+* [YBImageBrowser 图片浏览器](https://github.com/indulgeIn/YBImageBrowser)
+* [lottie 动画组件](https://github.com/airbnb/lottie-ios)
+* [MGSwipeTableCell 左边滑动，右边滑动添加菜单的cell](https://github.com/MortimerGoro/MGSwipeTableCell)
+* [DZNEmptyDataSet 空白占位视图](https://github.com/dzenbot/DZNEmptyDataSet)
+* [CWLateralSlide 侧滑菜单](https://github.com/ChavezChen/CWLateralSlide)
+* [ActionSheetPicker-3.0 滚动选择器](https://github.com/skywinder/ActionSheetPicker-3.0)
+* [IAPHelper 内购框架](https://github.com/saturngod/IAPHelper)
+* [DACircularProgress 圆形进度条](https://github.com/danielamitay/DACircularProgress)
+* [WZLBadge 角标](https://github.com/weng1250/WZLBadge)
+* [SAMKeychain 钥匙串方案](https://github.com/soffes/SAMKeychain)
+* [XHLaunchAd 广告页热启动图](https://github.com/CoderZhuXH/XHLaunchAd)
+* [Aspects OC AOP框架](https://github.com/steipete/Aspects)
+* [Stinger 饿了么类似Aspects AOP开源框架](https://github.com/eleme/Stinger)
+* [CocoaAsyncSocket socket编程框架](https://github.com/robbiehanson/CocoaAsyncSocket)
+* [SocketRocket webSocket框架](https://github.com/facebook/SocketRocket)
+* [KMNavigationBarTransition 导航栏push和pop过渡效果更加顺滑的框架](https://github.com/MoZhouqi/KMNavigationBarTransition)
+* [MLeaksFinder 微信读书团队+facebook框架 检测内存泄露或循环引用 Debug工具](https://github.com/Tencent/MLeaksFinder)
+* [LLDebugTool Debug调试框架](https://github.com/HDB-Li/LLDebugTool)
+* [LSSafeProtector 防止crash的库](https://github.com/lsmakethebest/LSSafeProtector)
+* [AvoidCrash 日志收集](https://github.com/chenfanfang/AvoidCrash)
+* [InjectionIII 支持模拟器的UI热重载应用](https://github.com/johnno1962/InjectionIII/releases)
 
 
 
