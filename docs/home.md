@@ -5,3 +5,5 @@
   * [4. runtime相关](zh-cn/runtime.md)
   * [5. runloop相关](zh-cn/runloop.md)
   * [6. ccache优化编译速度相关](zh-cn/ccache.md)
+  * [7. git使用笔记](zh-cn/git_note.md)
+
