@@ -71,6 +71,7 @@
 4. [用ccache让Xcode运行、打包飞起来](https://www.jianshu.com/p/b61f182f75d2)
 5. [优化 iOS 项目的构建时间](https://toutiao.io/posts/9gd1v7/preview)
 6. [提升iOS打包速度](http://codingpub.github.io/2019/09/08/%E6%8F%90%E5%8D%87iOS%E6%89%93%E5%8C%85%E9%80%9F%E5%BA%A6/)
+7. [CCache如何应用在xcodebuild打包](http://cinvoke.me/?p=290)
 
 
 

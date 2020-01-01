@@ -7,4 +7,5 @@
 * [runloop相关](zh-cn/runloop.md)
 * [ccache优化编译速度相关](zh-cn/ccache.md)
 * [git使用笔记](zh-cn/git_note.md)
+* [shell笔记](zh-cn/shell.md)
 * [google书签](zh-cn/google_book_mark.md)

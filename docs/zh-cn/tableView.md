@@ -1,15 +1,29 @@
 # UITableView优化相关 
-1. 使用`self-sizing`结合`autolayout`自动算高 或者 使用系统API `-systemLayoutSizeFittingSize:`自适应高度，注意点是自适应内容的最大宽度`` 需要提前设置好期望的一个值
+## 1. 使用`self-sizing`结合`autolayout`自动算高 或者 使用系统API `-systemLayoutSizeFittingSize:`自适应高度，注意点是自适应内容的最大宽度`preferredMaxLayoutWidth`,需要提前设置好期望的一个值
 ```swift
  tableView.rowHeight = UITableView.automaticDimension
  //行高的预估值/近似值，虽然可以随便给，但是还是尽量给一个折中的或者出现次数较多的一个高度
  tableView.estimatedRowHeight = 100;
 ```
-2. 提前计算好高度并缓存起来 可使用`UITableView+FDTemplateLayoutCell`[链接](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)来抹平优化难度
-3. CoreText异步渲染文本内容为图片展示
-4. 减少cell视图层级,尽量精简子控件数量
-5. 按需加载内容，只加载出现在屏幕上的cell的图片，离开屏幕的则取消加载图片的任务
+## 2. 提前计算好高度并缓存起来 可使用`UITableView+FDTemplateLayoutCell`来抹平优化难度
+[UITableView+FDTemplateLayoutCell](https://github.com/forkingdog/UITableView-FDTemplateLayoutCell)
+```swift
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    id model = [self.viewModel modelForIndexPath:indexPath];
+    NSString *reuseIdentifier = NSStringFromClass([model class]);
+    __weak typeof (self) weakSelf = self;
+    return [tableView fd_heightForCellWithIdentifier:reuseIdentifier cacheByIndexPath:indexPath configuration:^(HPPostBaseTableViewCell *cell) {
+        cell.pageType = weakSelf.pageType;
+        cell.delegate = weakSelf;
+        cell.model = model;
+    }];
+}
 
+```
+## 3. CoreText异步渲染文本内容为图片展示
+## 4. 减少cell视图层级,尽量精简子控件数量
+**cell尽量不要嵌套很多子视图,或者所有控件均添加在cell上**
+## 5. 按需加载内容，只加载出现在屏幕上的cell的图片，离开屏幕的则取消加载图片的任务
 ```swift
 有些情况下我们可能会去快速的滑动列表，这时候其实会有大量的cell对象被创建、被重用，但其实我们可能只是去浏览列表停止的那一页的上下一定范围内的信息，前面快速划过的那些信息对我们来说都是无用的。此时我们可以通过ScrollView的代理方法
 targetContentOffset 是TableView减速到停止的地方, velocity 表示速度向量。
@@ -43,15 +57,35 @@ targetContentOffset 是TableView减速到停止的地方, velocity 表示速度�
     }  
 } 
 ```
-6. 利用重用机制,防止大量创建cell
-7. 尽量使所有的view 不透明，包括cell自身,`cell.opaque = YES;`，默认为YES，不透明的视图可以极大地提高渲染的速度
-8. 避免离屛渲染,圆角可用贝塞尔曲线绘制
-9.  避免重复创建子视图，可使用hidden隐藏 
-10. 分页预加载（用户无感知）[预加载原理](https://draveness.me/preload)
-11. Cell类中应该避免请求网络加载数据
+## 6. 利用重用机制,防止大量创建cell
+**设置cell的复用id标识,样式相近的cell可设置hidden等显示隐藏来控制局部，保持整体的复用**
+## 7. 尽量使所有的view 不透明，包括cell自身,`cell.opaque = YES;`，默认为YES，不透明的视图可以极大地提高渲染的速度
+## 8. 避免离屛渲染,圆角可用贝塞尔曲线绘制
+```swift
+    typedef NS_OPTIONS(NSUInteger, UIRectCorner) {
+    UIRectCornerTopLeft     = 1 << 0,
+    UIRectCornerTopRight    = 1 << 1,
+    UIRectCornerBottomLeft  = 1 << 2,
+    UIRectCornerBottomRight = 1 << 3,
+    UIRectCornerAllCorners  = ~0UL
+};
+
+    UIBezierPath *maskPath;
+    maskPath = [UIBezierPath bezierPathWithRoundedRect:view.bounds
+                                     byRoundingCorners:(UIRectCornerTopLeft | UIRectCornerBottomLeft)
+                                           cornerRadii:CGSizeMake(conner, conner)];
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    maskLayer.frame = view.bounds;
+    maskLayer.path = maskPath.CGPath;
+    view.layer.mask = maskLayer;
+
+```
+## 9.  避免重复创建子视图，可使用hidden隐藏 
+## 10. 分页预加载（用户无感知）[预加载原理](https://draveness.me/preload)
+## 11. Cell类中应该避免请求网络加载数据
     > 如果确实有需求不可避免，可以将网络加载任务添加到Runloop中，
     > 设置DefaultRunloopModule模式。这样子可以起到延迟加载的作用。
-12. 在`willDisplayCell:forRowAtIndexPath:`代理方法中绑定数据
+## 12. 在`willDisplayCell:forRowAtIndexPath:`代理方法中绑定数据
     > 很多人都喜欢在cellForRowAtIndexPath：方法中绑定数据，然后此时的Cell其实还未显示，该方法中包含了大量的布局、绘制相关的操作。我们应该在该方法中尽量简化我们自身的逻辑操作。这时我们可以使用在‘willDisplayCell：forRowAtIndePath:’方法中绑定数据。
 
 ```swift
