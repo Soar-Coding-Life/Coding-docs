@@ -9,3 +9,4 @@
 * [git使用笔记](zh-cn/git_note.md)
 * [shell笔记](zh-cn/shell.md)
 * [google书签](zh-cn/google_book_mark.md)
+* [Markdown 绘图插件之 Mermaid 语法](zh-cn/mermaid.md)
