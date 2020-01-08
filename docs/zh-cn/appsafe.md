@@ -67,6 +67,8 @@ char *printEnv(void){
     return NO;
 }
 ```
+[防止越狱代码可参考](https://github.com/thii/DTTJailbreakDetection/blob/master/Sources/DTTJailbreakDetection/DTTJailbreakDetection.m)
+
 #### IPA文件被篡改
 ##### 检测ipa文件是否被篡改可以通过以下方法：
  **1. 通过对`CodeResources`读取资源文件原始`hash`，和当前`hash`进行对比，判断是否经过篡改，被篡改过的文件应从服务器重新请求资源文件进行替换;**
