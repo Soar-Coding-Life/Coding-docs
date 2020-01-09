@@ -1,5 +1,5 @@
 # iOS 安全防护相关
-> 道高一尺，魔高一丈，关于iOS App安全是个攻防不断（恶心🤢）的过程
+> 道高一尺,魔高一丈,关于安全是个攻防不断博弈的过程,拥抱变化.
 
 #### 越狱相关
 ##### 越狱设备或者环境判断
@@ -153,11 +153,10 @@ int main(int argc, char * argv[]) {
 * RSA
   
 #### 代码混淆加固等
-
-
+* 一些核心数据的加密混淆，因为大面积混淆容易出现不可预知的问题,比如苹果商店拒绝上架之类的
 
 #### 相关博客介绍
-
+* [【iOS应用安全】hook及越狱的基本防护与检测(动态库注入检测、hook检测与防护、越狱检测、签名校验、IDA反编译分析加密协议示例)](https://github.com/SmileZXLee/ZXHookDetection)
 * [iOS应用安全 － 完整性检测](https://www.jianshu.com/p/f043b72db736)
 * [iOS App的几种安全防范](https://www.cnblogs.com/tangyuanby2/p/11384481.html)
 * [防止App被修改,加签名判断](https://makezl.github.io/2016/06/21/CodeSign/)
