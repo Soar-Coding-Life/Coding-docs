@@ -103,3 +103,36 @@ git push origin ${branch_name}
 	find ${code_path} "(" -name "*.h" -or -name "*.mm" -or -name "*.m" -or -name "*.swift" ")" -print | xargs wc -l 
 
 ```
+
+### `Plistbuddy`相关的操作
+
+* 添加`name`字段 值为`iqiyi`
+```shell
+plistbuddy -c 'Add :items:0:metadata:name string "iqiyi"' ~/Desktop/man.plist
+```
+
+* 修改`title`值为`你好`
+```shell
+plistbuddy -c 'Set :items:0:metadata:title "你好"' ~/Desktop/man.plist
+```
+
+* 删除`name`字段
+```shell
+plistbuddy -c 'Delete :items:0:metadata:name ' ~/Desktop/man.plist
+```
+
+* 合并两个`plist` 可设置层级
+```shell
+PlistBuddy -c 'Merge A.plist' B.plist
+plistbuddy -c "Merge ~/Desktop/Global.plist :Software:Gallery"~/Desktop/man.plist
+```
+* 打印
+
+```shell
+plistbuddy -c 'Print' ~/Desktop/man.plist
+```
+
+
+
+
+
