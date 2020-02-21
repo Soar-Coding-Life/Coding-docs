@@ -132,7 +132,43 @@ plistbuddy -c "Merge ~/Desktop/Global.plist :Software:Gallery"~/Desktop/man.plis
 plistbuddy -c 'Print' ~/Desktop/man.plist
 ```
 
+* 修改欢迎页面
+```shell
+# 无论是linux还是Mac,终端都有这么一个配置文件,专门设置初始页面的展示,可以自由发挥(写上自己的大名或者画一张ascii图佛祖保佑永无bug之类的,座右铭啥的...)
+vim /etc/motd
+```
+* `oh-my-zsh`的`agnoster`的主题配置需要注意的几个问题
 
+```shell
+#agnoster主题,zsh默认目录是不带颜色的,在.zshrc末尾加上即可
+export LSCOLORS="exfxcxdxbxexexabagacad"
+
+# 修改终端路径前缀,默认为电脑用户名,可以在~/.oh-my-zsh/themes/agnoster.zsh-theme修改prompt_context函数或者将其调用注释即可缩短路径长度
+
+prompt_context() {
+  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+    # prompt_segment black default "%(!.%{%F{yellow}%}.)$USER@%m"
+    prompt_segment red default "🎯Coding"
+  fi
+}
+
+# 改变路径显示颜色和缩减路径长度
+prompt_dir() {
+  #prompt_segment blue black '%~' #默认显示全路径
+   prompt_segment 3 white '%c' #只显示当前路径
+}
+
+# 还有有git管理的目录下的路径颜色显示也可以改prompt_git函数
+ 
+ if [[ -n $dirty ]]; then
+      #prompt_segment yellow black
+      prompt_segment yellow white
+    else
+      #prompt_segment green black
+      prompt_segment green  white
+    fi
+
+```
 
 
 
