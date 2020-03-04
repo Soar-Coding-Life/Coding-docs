@@ -85,6 +85,12 @@ export PATH=${PATH}:${ANDROID_HOME}/platform-tools
 ```
 
 ### Xcode + cocoapods
+#### `Xcode`在`App Store`或者[开发者中心](https://developer.apple.com/xcode/)下载即可
+#### `Cocoapods`安装
+```shell
+sudo gem install cocoapods
+
+```
 
 ```shell
 flutter doctor 检测环境是否可行
