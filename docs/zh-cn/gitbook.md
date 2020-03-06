@@ -71,4 +71,4 @@ gitbook build
 
 ### 参考文档
 [docsify官方文档](https://docsify.js.org/#/zh-cn/)
-
+[gitbook相关的介绍](https://www.cnblogs.com/remainsu/p/macos-shi-yonggitbook-zhi-zuo-dian-zi-shu.html)
